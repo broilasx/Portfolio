@@ -454,3 +454,14 @@ h3
 {
     color: var(--color-primary);
 }
+/*Experience*/
+.education
+{
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+.courses
+{
+    flex: 0 0 50%;
+    max-width: 50%;
+}
