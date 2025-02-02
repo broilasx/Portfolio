@@ -54,6 +54,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+html
+{
+    scroll-behavior: smooth;
+}
 body,
 button,
 input,textarea
@@ -217,6 +221,14 @@ h3
 {
     color: var(--color-primary);
 }
+.nav-close
+{
+    font-size: 1rem;
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    cursor: pointer;
+}
 .nav-btns
 {
     display: inline-flex;
@@ -233,6 +245,7 @@ h3
     font-size:1.2rem;
     cursor: pointer;
 }
+.nav-close,
 .nav-toggle
 {
     display: none;
@@ -251,6 +264,10 @@ h3
     height: 0.3rem;
     background-color: var(--color-primary);
     border-radius: 50%;
+}
+.scroll-header
+{
+    box-shadow: 0 1px 4px rgba(165, 125,125,0.0);
 }
 /*Home*/
 .home
@@ -359,8 +376,8 @@ h3
 }
 
 .about-img img {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%; 
 }
 .about-content
@@ -433,19 +450,22 @@ h3
     color: var(--color-gray);
 }
 /*Services*/
-.services .service-item
-{
+.services .service-item {
     flex: 0 0 33.33%;
-    max-width: 33.33%;
+    max-width: 33.3%;
     display: flex;
+    justify-content: center; /* Mantém a posição alinhada */
+    align-items: center;
 }
-.services .service-item .service-item-inner
-{
+
+.services .service-item .service-item-inner {
     border-radius: var(--border-radius);
     padding: var(--card-padding);
     text-align: center;
-    transform: translateY(0);
+    transform: scale(0.8); /* Reduz o tamanho mantendo a posição */
+    transition: transform 0.3s ease-in-out; /* Suaviza a animação */
 }
+
 .services .service-item .service-item-inner:hover
 {
     transform: translateY(-0.625rem);
@@ -900,6 +920,13 @@ h3
 }
 @media only screen and (max-width:968px)
 {
+    .customize-theme .card
+    {
+        width: 50vw;
+    }
+}
+@media only screen and (max-width:968px)
+{
     .about-content,
     .about-img
     {
@@ -913,16 +940,24 @@ h3
     }
     .services .service-item
     {
-        flex: 0 0 50%;
-        max-width: 50%;
+        flex: 0 0 33.33%;
+        max-width: 33.3%;
+        display: flex;
+        justify-content: center; /* Mantém a posição alinhada */
+        align-items: center;
         margin-bottom: var(--m-2-5);
     }
+    
 }
 @media only screen and (max-width:768px)
 {
     body
     {
         margin: var(--header-height) 0 0 0;
+    }
+    .container
+    {
+        max-width: 598px;
     }
     .nav
     {
@@ -940,11 +975,58 @@ h3
         width: 80%;
         height: 100%;
         top: 0;
-        right: 0;
+        right: -100%;
         padding: 4rem 0 0 3rem;
-        box-shadow: -2px 0 4px var(--color-dark);
         border-radius: 1rem 0 0 1rem;
         z-index: 100;
-
+        transition: .3s;
+    }
+    .show-menu
+    {
+        right: 0;
+    }
+    .nav-close,
+    .nav-toggle
+    {
+        display: inline-flex;
+    }
+    .contact-data,
+    .contact-form,
+    .education,
+    .courses,
+    .about-content .about-text,
+    .about-content .skills
+    {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .services .service-item {
+        flex: 0 0 auto; /* Remove a largura fixa */
+        max-width: 100%; /* Garante que ocupe a largura total */
+        display: flex;
+        justify-content: center; /* Centraliza o conteúdo */
+    }
+    .fact-item,
+    .portfolio-item
+    {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    .contact-data,
+    .education,
+    .about-content .about-text
+    {
+        margin-bottom: var(--m-2-5);
+    }
+    .customize-theme .card
+    {
+        width: 57vw;
+    }
+}
+@media only screen and (max-width:576px)
+{
+    .customize-theme .card
+    {
+        width: 80vw;
     }
 }
