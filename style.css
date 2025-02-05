@@ -62,6 +62,7 @@ html
 {
     scroll-behavior: smooth;
 }
+
 body,
 button,
 input,textarea
@@ -220,6 +221,10 @@ h3
 {
     font-weight: var(--font-medium);
     transition: .3s;
+}
+.nav-link.active-link {
+    color: var(--color-accent);
+    font-weight: bold;
 }
 .nav-link:hover
 {

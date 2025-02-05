@@ -199,3 +199,23 @@ Bg3.addEventListener('click', () => {
     Bg1.classList.remove('active');
     changeBG();
 })
+
+const sections = document.querySelectorAll("section[id]");
+
+function scrollActive() {
+    const scrollY = window.pageYOffset;
+
+    sections.forEach(section => {
+        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop - 50;
+        const sectionId = section.getAttribute("id");
+
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            document.querySelector(".nav-link[href*=" + sectionId + "]").classList.add("active-link");
+        } else {
+            document.querySelector(".nav-link[href*=" + sectionId + "]").classList.remove("active-link");
+        }
+    });
+}
+
+window.addEventListener("scroll", scrollActive);
