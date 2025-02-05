@@ -23,7 +23,7 @@
             <div class="nav-menu" id="nav-menu">
                 <ul class="nav-list">
                     <li class="nav-item">
-                        <a href="#home" class="nav-link active-link">Home</a>
+                        <a href="#home" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
                         <a href="#about" class="nav-link">About</a>
@@ -63,13 +63,12 @@
                     <h1>Bruno Almeida</h1>
                     <span>I'm a <span class="info-text">Software Engineer</span></span>
                     <ul class="social-icons">
-                        <li><a href="#"><i class="lni lni-instagram"></i></a></li>
-                        <li><a href="#"><i class="lni lni-twitter"></i></a></li>
-                        <li><a href="#"><i class="lni lni-github"></i></a></li>
+                        <li><a href="https://github.com/broilasx" target="_blank"><i class="lni lni-github"></i></a></li>
                         <li><a href="#"><i class="lni lni-linkedin"></i></a></li>
+                        <li><a href="#"><i class="lni lni-twitter"></i></a></li>
                     </ul>
                     <div>
-                        <a href="#" class="btn btn-default">Hire Me</a>
+                        <a href="#contact" class="btn btn-default">Hire Me</a>
                     </div>
                     <!--scroll down-->
                     <div class="scroll-down">
@@ -100,7 +99,7 @@
                                         I am Bruno Almeida, a software engineer student from Viseu, currently studying at Coimbra. My hobbies are coding, do some sport and play games.
                                     </p>
                                     <div>
-                                        <a href="#" class="btn btn-default">Download CV</a>
+                                        <a href="BrunoAlmeidaResume.pdf" class="btn btn-default" target="_blank" download="BrunoAlmeidaResume.pdf">Download CV</a>
                                     </div>
                                 </div>
                                 <div class="skills padd-15">
@@ -303,16 +302,17 @@
                 <div class="row">
                     <div class="portfolio-filter padd-15">
                         <div class="portfolio-filter-inner">
-                            <button type="button" class="active">Everything</button>
-                            <button type="button">Web Design</button>
-                            <button type="button">Mobile Apps</button>
-                            <button type="button">Graphics</button>
+                            <button type="button" class="active" data-filter="all">Everything</button>
+                            <button type="button" data-filter="java">Java</button>
+                            <button type="button" data-filter="c">C</button>
+                            <button type="button" data-filter="python">Python</button>
+                            <button type="button" data-filter="sql">SQL</button>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <!--portfolio item-->
-                    <div class="portfolio-item padd-15">
+                    <div class="portfolio-item padd-15" data-category="java">
                         <div class="portfolio-item-inner">
                             <div class="portfolio-item-thumbnail">
                                 <img src="java.png" alt="">
@@ -323,7 +323,7 @@
                             <span class="more-button">&hellip;</span>
                         </div>
                     </div>
-                    <div class="portfolio-item padd-15">
+                    <div class="portfolio-item padd-15" data-category="python">
                         <div class="portfolio-item-inner">
                             <div class="portfolio-item-thumbnail">
                                 <img src="python.png" alt="">
@@ -334,7 +334,7 @@
                             <span class="more-button">&hellip;</span>
                         </div>
                     </div>
-                    <div class="portfolio-item padd-15">
+                    <div class="portfolio-item padd-15" data-category="c">
                         <div class="portfolio-item-inner">
                             <div class="portfolio-item-thumbnail">
                                 <img src="c-.png" alt="">
@@ -345,7 +345,7 @@
                             <span class="more-button">&hellip;</span>
                         </div>
                     </div>
-                    <div class="portfolio-item padd-15">
+                    <div class="portfolio-item padd-15" data-category="sql">
                         <div class="portfolio-item-inner">
                             <div class="portfolio-item-thumbnail">
                                 <img src="html.png" alt="">
@@ -376,26 +376,28 @@
                         </div>
                     </div>
                     <!--contact form-->
-                    <form action="" class="contact-form padd-15">
+                    <form action="https://api.web3forms.com/submit" method="POST" class="contact-form padd-15">
+                        <!-- Required Web3Forms Access Key -->
+                        <input type="hidden" name="access_key" value="7df7c327-1f26-445c-a8bd-75977231679f">
+                    
                         <div class="contact-inputs">
                             <div class="contact-content">
-                                <input type="email" class="contact-input">
-                                <label for="" class="contact-label">Email</label>
-                                <span></span>
+                                <input type="email" name="email" class="contact-input" required>
+                                <label class="contact-label">Email</label>
                             </div>
                             <div class="contact-content">
-                                <input type="text" class="contact-input">
-                                <label for="" class="contact-label">Subject</label>
-                                <span></span>
+                                <input type="text" name="subject" class="contact-input" required>
+                                <label class="contact-label">Subject</label>
                             </div>
                             <div class="contact-content contact-area">
-                                <textarea name="" id="" cols="30" rows="10" class="contact-input"></textarea>
-                                <label for="" class="contact-label">Message</label>
-                                <span></span>
+                                <textarea name="message" cols="30" rows="10" class="contact-input" required></textarea>
+                                <label class="contact-label">Message</label>
                             </div>
                         </div>
-                        <a href="#" class="btn btn-default">Send Message</a>
+                    
+                        <button type="submit" class="btn btn-default">Send Message</button>
                     </form>
+                    
                 </div>
             </div>
         </section>

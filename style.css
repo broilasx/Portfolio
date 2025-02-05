@@ -599,6 +599,28 @@ h3
     max-width: 33.33%;
     margin-bottom: var(--m--1-5);
 }
+.portfolio-item.hide
+{
+    display: none;
+}
+.portfolio-item.show
+{
+    display: block;
+    animation: showItem 0.5s ease;
+}
+@keyframes showItem
+{
+    0%
+    {
+        transform: scale(0.6);
+        opacity: 0;
+    }
+    100%
+    {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 .portfolio-item-inner
 {
     position: relative;
@@ -710,7 +732,7 @@ h3
 {
     position: relative;
     height: 3rem;
-    border-bottom: 2px solid --color-gray;
+    border-bottom: 2px solid var(--color-gray);
 }
 .contact-content span
 {
@@ -741,13 +763,13 @@ h3
     border: none;
     z-index: 1;
 }
-.contact-label
-{
+.contact-label {
     position: absolute;
-    top: .40rem;
-    width: 100%;
+    top: 1rem; 
+    left: 0;
     font-size: var(--small-font-size);
-    transform: .3s;
+    transition: 0.3s;
+    color: var(--color-gray); 
 }
 .contact-area
 {
@@ -757,17 +779,17 @@ h3
 {
     resize: none;
 }
-.contact-input:focus + .contact-label
-{
-    top: -.75rem;
+.contact-input:focus + .contact-label,
+.contact-input:not(:placeholder-shown) + .contact-label {
+    top: -0.75rem;
     left: 0;
-    z-index: 10;
+    font-size: 0.9rem;
     color: var(--color-primary);
 }
 /*Footer*/
 .footer
 {
-    padding: 60px 0;
+    padding: 40px 0;
 }
 .footer-text
 {
