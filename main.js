@@ -219,3 +219,13 @@ function scrollActive() {
 }
 
 window.addEventListener("scroll", scrollActive);
+
+document.querySelectorAll('.more-button').forEach(button => {
+    button.addEventListener('click', function() {
+        // Get the link from the data-link attribute
+        const githubLink = this.getAttribute('data-link');
+        
+        // Open the link in a new tab
+        window.open(githubLink, '_blank');
+    });
+});
